@@ -45,13 +45,13 @@ UserSchema.pre('save', async function(next){
 
 // For Session Mgt -> Create a method that creates a Signed JWT using the user id for session Mgt
 UserSchema.methods.getSignedJwtToken = function() {
-    return jwt.sign( {id: this._id}, process.env.JWT_SECRET, {
+    return jwt.sign( {id: this._id}, process.env.JWT_SECRET!, {
         expiresIn: process.env.JWT_EXPIRE
     })
 }
 
 // A Method that Checkes if Entered Password equals Hashed Password
-UserSchema.methods.matchPassword = async function(enteredPassword: String){
+UserSchema.methods.matchPassword = async function(enteredPassword: string ){
     return await bcrypt.compare(enteredPassword, this.password);
 }
 
