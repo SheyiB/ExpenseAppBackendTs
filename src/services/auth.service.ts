@@ -30,7 +30,7 @@ export class AuthService{
 
  				const isMatch =  await user.matchPassword(password);
                 console.log(isMatch)      
-                if(!isMatch) reject('Invalid Inforamtion Supplied!');
+                if(!isMatch) reject({status: 401, message:'Invalid Inforamtion Supplied!'});
 
                 user.password = undefined;
 
