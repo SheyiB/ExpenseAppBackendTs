@@ -28,8 +28,7 @@ export class AuthService{
                
                 if (!user) reject('FALSE-INFO!');
 
- 				const isMatch =  await user.matchPassword(password);
-                console.log(isMatch)      
+ 				const isMatch =  await user.matchPassword(password); 
                 if(!isMatch) reject({status: 401, message:'Invalid Inforamtion Supplied!'});
 
                 user.password = undefined;
