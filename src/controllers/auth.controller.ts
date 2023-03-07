@@ -7,8 +7,8 @@ export const signUp = async (req: Request, res: Response) =>{
     try{
         const user = await auth.signUp(req.body);
         return res.status(201).json(user)
-    }  catch(e){
-        return res.status(500).json(e.message)
+    }  catch(e : any){
+        return res.status(e.status).json({success: false, message: e.message})
     }
 }
 
@@ -19,8 +19,8 @@ export const login = async (req: Request, res: Response) =>{
         res.header('x-auth-token', token);
         return res.status(201).json({user, token});
     }  
-    catch(e){
-            return res.status(e.status).json(e)    
+    catch(e: any) {
+            return res.status(e.status).json({success: false, message: e.message})    
     
         
     }
