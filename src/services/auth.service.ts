@@ -17,8 +17,8 @@ export class AuthService{
         })
     }
 
-    login (body: UserLogin){
-        return new Promise(async(resolve, reject) => {
+    login (body: UserLogin) {
+        return new Promise<{user: string, token: string}>(async(resolve, reject) => {
             try{
                 
                 const {email, password} = body;
@@ -33,15 +33,15 @@ export class AuthService{
 
                 user.password = undefined;
 
-                const token = user.getSignedJwtToken();
+                const token: string = user.getSignedJwtToken();
 
                 if(!token) reject ('Could not Sign In User');
                 
 
 
-                resolve({user, token})
+                resolve({user, token} )
             }
-            catch(e){
+            catch(e : any){
                 e.source = 'Get User Service';
                 return reject(e)
             }
