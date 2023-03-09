@@ -2,7 +2,7 @@ import {User, UserData, IUser, UserLogin} from '../models/user';
 
 export class AuthService{
 	signUp (body: IUser){
-        return new Promise(async(resolve, reject) => {
+        return new Promise<{user: UserData, token: string}>(async(resolve, reject) => {
             try{
                 const user: UserData = await User.create(body);
 
