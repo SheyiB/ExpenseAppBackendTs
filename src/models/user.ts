@@ -26,7 +26,7 @@ export interface UserData extends IUser {
 }
 
 
-const UserSchema = new Schema<IUser>({
+const UserSchema = new Schema<UserData>({
     firstname: {type: String, required: true},
     lastname: {type: String, required: true},
     email: {type: String, required: true},
@@ -62,4 +62,4 @@ UserSchema.methods.matchPassword = async function(enteredPassword: string ){
 }
 
 
-export const User = model<IUser>('User', UserSchema)
+export const User = model<UserData>('User', UserSchema)
