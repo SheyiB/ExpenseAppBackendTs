@@ -6,8 +6,7 @@ const Purchase = new PurchaseService();
 export const createPurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.createPurchase(req.body);
-        next()
-        return res.status(201).json(purchase) 
+        return next(res.status(201).json(purchase)); 
         
     }  catch(e:any){
         console.log(e.message)
@@ -18,10 +17,10 @@ export const createPurchase = async (req: Request, res: Response, next: NextFunc
 export const getAllPurchases = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.getAllPurchase(req.query);
-        next()
-        return res.status(200).json(purchase)
+
+        return next(res.status(200).json(purchase))
     }  catch(e:any){
-        return res.status(500).json(e)
+        return next(res.status(500).json(e))
     }
 }
 
@@ -29,39 +28,39 @@ export const getAllPurchases = async (req: Request, res: Response, next: NextFun
 export const getUserPurchases = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.getUserPurchase(req.params.id);
-        next()
-        return res.status(200).json(purchase)
+        
+        return next(res.status(200).json(purchase))
     }  catch(e:any){
-        return res.status(500).json(e)
+        return next(res.status(500).json(e))
     }
 }
 
 export const getPurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.getPurchase(req.params.id);
-        next()
-        return res.status(200).json(purchase)
+        
+        return next(res.status(200).json(purchase))
     }  catch(e:any){
-        return res.status(500).json(e)
+        return next(res.status(500).json(e))
     }
 }
 
 export const updatePurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.updatePurchase(req.params.id, req.body);
-        next()
-        return res.status(200).json(purchase)
+        
+        return next(res.status(200).json(purchase))
     }  catch(e:any){
-        return res.status(500).json(e)
+        return next(res.status(500).json(e))
     }
 }
 
 export const deletePurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.deletePurchase(req.params.id);
-        next()
-        return res.status(204).json({data: purchase})
+        
+        return next(res.status(204).json({data: purchase}))
     }  catch(e:any){
-        return res.status(500).json(e)
+        return next(res.status(500).json(e))
     }
 }
