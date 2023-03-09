@@ -7,7 +7,7 @@ export class PurchaseService {
                 const purchase = await Purchase.create(body);
                 return resolve(purchase);
             }
-            catch (e){
+            catch (e:any){
                 e.source = 'Create Purchase Service';
                 return reject(e)
             }
@@ -20,7 +20,7 @@ export class PurchaseService {
                 const purchases = await Purchase.find({user: userid});
                 return resolve(purchases)
             }
-            catch(e){
+            catch(e:any){
                 e.source = 'Get User Purchase Service';
                 return reject(e)
             }
@@ -33,7 +33,7 @@ export class PurchaseService {
                 const purchases = await Purchase.find(query);
                 return resolve(purchases)
             }
-            catch(e){
+            catch(e:any){
                 e.source = 'Get Purchase Service';
                 return reject(e)
             }
@@ -48,7 +48,7 @@ export class PurchaseService {
 
                 reject('Purchase Not Found!')
             }
-            catch(e){
+            catch(e:any){
                 e.source = 'Get Purchase Service';
                 return reject(e)
             }
@@ -63,7 +63,7 @@ export class PurchaseService {
 
                 purchase = await Purchase.findByIdAndUpdate(purchaseid, body, { new: true, runValidators: true})
                 return resolve(purchase)
-            } catch (e){
+            } catch (e:any){
                 e.source = 'Update Purchase Service';
                 return reject(e)
             }
@@ -78,7 +78,7 @@ export class PurchaseService {
 
                 purchase = await Purchase.findByIdAndDelete(purchaseid)
                 return resolve(purchase)
-            } catch (e){
+            } catch (e:any){
                 e.source = 'Update Purchase Service';
                 return reject(e)
             }

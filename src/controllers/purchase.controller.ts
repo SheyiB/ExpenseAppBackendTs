@@ -1,60 +1,67 @@
 import {PurchaseService} from '../services/purchase.service';
-import {Request, Response} from "express";
+import {Request, Response, NextFunction} from "express";
 
 const Purchase = new PurchaseService();
 
-export const createPurchase = async (req: Request, res: Response, next) =>{
+export const createPurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.createPurchase(req.body);
-        return res.status(201).json(purchase)
-    }  catch(e){
+        next()
+        return res.status(201).json(purchase) 
+        
+    }  catch(e:any){
         console.log(e.message)
         return res.status(500).json(e.message)
     }
 }
 
-export const getAllPurchases = async (req: Request, res: Response, next) =>{
+export const getAllPurchases = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.getAllPurchase(req.query);
+        next()
         return res.status(200).json(purchase)
-    }  catch(e){
+    }  catch(e:any){
         return res.status(500).json(e)
     }
 }
 
 
-export const getUserPurchases = async (req: Request, res: Response, next) =>{
+export const getUserPurchases = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.getUserPurchase(req.params.id);
+        next()
         return res.status(200).json(purchase)
-    }  catch(e){
+    }  catch(e:any){
         return res.status(500).json(e)
     }
 }
 
-export const getPurchase = async (req: Request, res: Response, next) =>{
+export const getPurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.getPurchase(req.params.id);
+        next()
         return res.status(200).json(purchase)
-    }  catch(e){
+    }  catch(e:any){
         return res.status(500).json(e)
     }
 }
 
-export const updatePurchase = async (req: Request, res: Response, next) =>{
+export const updatePurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.updatePurchase(req.params.id, req.body);
+        next()
         return res.status(200).json(purchase)
-    }  catch(e){
+    }  catch(e:any){
         return res.status(500).json(e)
     }
 }
 
-export const deletePurchase = async (req: Request, res: Response, next) =>{
+export const deletePurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const purchase = await Purchase.deletePurchase(req.params.id);
+        next()
         return res.status(204).json({data: purchase})
-    }  catch(e){
+    }  catch(e:any){
         return res.status(500).json(e)
     }
 }
