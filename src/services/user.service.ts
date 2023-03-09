@@ -8,7 +8,7 @@ export class UserService {
                 const user = await User.create(body);
                 return resolve(user);
             }
-            catch (e){
+            catch (e: any){
                 e.source = 'Create User Service';
                 return reject(e)
             }
@@ -21,7 +21,7 @@ export class UserService {
                 const users = await User.find();
                 return resolve(users)
             }
-            catch(e){
+            catch(e: any){
                 e.source = 'Get User Service';
                 return reject(e)
             }
@@ -36,7 +36,7 @@ export class UserService {
 
                 reject('User Not Found!')
             }
-            catch(e){
+            catch(e : any){
                 e.source = 'Get User Service';
                 return reject(e)
             }
@@ -51,7 +51,7 @@ export class UserService {
 
                 user = await User.findByIdAndUpdate(userid, body, { new: true, runValidators: true})
                 return resolve(user)
-            } catch (e){
+            } catch (e: any){
                 e.source = 'Update User Service';
                 return reject(e)
             }
@@ -66,7 +66,7 @@ export class UserService {
 
                 user = await User.findByIdAndDelete(userid)
                 return resolve(user)
-            } catch (e){
+            } catch (e: any){
                 e.source = 'Update User Service';
                 return reject(e)
             }
