@@ -6,10 +6,10 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { usersRouter } from "./users/users.router" ;
-import { userRouter } from "./routes/user.router";
-import { purchaseRouter } from './routes/purchase.router';
-import { authRouter } from './routes/auth.router';
+import { usersRouter } from "./users/users.routes" ;
+import { userRouter } from "./routes/user.routes";
+import { purchaseRouter } from './routes/purchase.routes';
+import { authRouter } from './routes/auth.routes';
 import {db} from './db';
 import morgan from "morgan";
 

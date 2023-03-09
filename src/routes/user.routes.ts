@@ -1,6 +1,6 @@
 import express from "express";
 import {createUser, deleteUser, getAllUsers, getUser, updateUser} from '../controllers/user.controller';
-import {purchaseRouter} from './purchase.router';
+import {purchaseRouter} from './purchase.routes';
 
 import {protect} from "../middlewares/auth";
 
