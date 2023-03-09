@@ -2,6 +2,7 @@ import { Schema, model } from 'mongoose';
 import crypto from  'crypto';
 import bcrypt from  'bcrypt';
 import jwt from 'jsonwebtoken';
+import { isNumberObject } from 'util/types';
 
 export interface IUser {
     firstname: string;
@@ -17,6 +18,11 @@ export interface IUser {
 export interface UserLogin {
     email: string,
     password: string
+}
+
+export interface UserData extends IUser {
+    getSignedJwtToken : () => string;
+    matchPassword : () => string;    
 }
 
 
