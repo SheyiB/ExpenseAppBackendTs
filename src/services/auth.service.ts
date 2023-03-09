@@ -1,16 +1,16 @@
-import {User, IUser, UserLogin} from '../models/user';
+import {User, UserData, IUser, UserLogin} from '../models/user';
 
 export class AuthService{
 	signUp (body: IUser){
         return new Promise(async(resolve, reject) => {
             try{
-                const user = await User.create(body);
+                const user: UserData = await User.create(body);
 
                 const token = user.getSignedJwtToken();
 
                 return resolve({user, token});
             }
-            catch (e){
+            catch (e: any){
                 e.source = 'Sign-Up Service';
                 return reject(e)
             }
@@ -23,7 +23,7 @@ export class AuthService{
                 
                 const {email, password} = body;
                 
-                const user = await User.findOne({email: email}).select('+password');
+                const user : UserData | any= await User.findOne({email: email}).select('+password');
 
                
                 if (!user) reject('FALSE-INFO!');
