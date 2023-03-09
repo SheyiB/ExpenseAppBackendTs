@@ -5,7 +5,9 @@ export class AuthService{
         return new Promise<{user: UserData, token: string}>(async(resolve, reject) => {
             try{
                 const user: UserData = await User.create(body);
-
+                if (!user){
+                    reject({status: 401, message:'Invalid Inforamtion Supplied!'});
+                }
                 const token = user.getSignedJwtToken();
 
                 return resolve({user, token});

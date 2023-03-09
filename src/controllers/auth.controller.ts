@@ -8,7 +8,8 @@ export const signUp = async (req: Request, res: Response) =>{
         const user = await auth.signUp(req.body);
         return res.status(201).json(user)
     }  catch(e : any){
-        return res.status(e.status).json({success: false, message: e.message})
+        console.log(e.status)
+        return res.status(500).json({success: false, message: e.message})
     }
 }
 
