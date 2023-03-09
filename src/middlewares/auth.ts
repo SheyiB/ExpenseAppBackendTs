@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import {User} from "../models/user";
-import {Request, Response} from "express";
+import {Request, Response, NextFunction} from "express";
 
-export const protect = async(req: Request, res: Response, next) => {
+export const protect = async(req: Request, res: Response, next: NextFunction) => {
 
 	const token = req.header('x-auth-token');
 
@@ -10,21 +10,24 @@ export const protect = async(req: Request, res: Response, next) => {
 
 	try{
 
-		const decoded =  jwt.verify(token, process.env.JWT_SECRET);
+		const decoded =  jwt.verify(token, process.env.JWT_SECRET!);
 
-		const currentUser = await User.findById(decoded.id);
+		const { id } = (decoded as any)
 
-		currentUser.password = undefined;
+		const currentUser = await User.findById(id);
 
-		if(!currentUser) return res.status(406).json({message: 'USER NOT FOUND!'});
+		if(!currentUser) return res.status(404).json({message: 'USER NOT FOUND!'});
 
-		req.user = currentUser;
+		currentUser.password = '';
+
+		(req as any).user = currentUser;
 
 
 		next();
+		return;
 
 
-	}catch(e){
+	}catch(e: any){
 
 		if (e.name === 'TokenExpiredError' ){
 			return res.status(403).json({message: 'TOKEN EXPIRED! LOGIN!'});
