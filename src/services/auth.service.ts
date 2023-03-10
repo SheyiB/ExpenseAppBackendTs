@@ -5,14 +5,15 @@ export class AuthService{
         return new Promise<{user: UserData, token: string}>(async(resolve, reject) => {
             try{
                 const user: UserData = await User.create(body);
-                if (!user){
-                    reject({status: 401, message:'Invalid Inforamtion Supplied!'});
-                }
+                
                 const token = user.getSignedJwtToken();
 
                 return resolve({user, token});
             }
             catch (e: any){
+                if(e.message.includes('validation failed')){
+                    return reject({code: 400, message: e.message})
+                }
                 e.source = 'Sign-Up Service';
                 return reject(e)
             }

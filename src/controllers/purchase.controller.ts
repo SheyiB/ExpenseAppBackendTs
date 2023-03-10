@@ -9,8 +9,8 @@ export const createPurchase = async (req: Request, res: Response, next: NextFunc
         return next(res.status(201).json(purchase)); 
         
     }  catch(e:any){
-        console.log(e.message)
-        return res.status(500).json(e.message)
+        
+        return next(res.status(500).json(e.message))
     }
 }
 
