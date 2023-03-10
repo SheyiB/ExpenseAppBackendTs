@@ -29,8 +29,8 @@ export class PurchaseService {
             }
         })
     }
-
     getAllPurchase (query? : any){
+
         return new Promise(async(resolve, reject) => {
             try{
                 const purchases = await Purchase.find(query);
@@ -49,7 +49,7 @@ export class PurchaseService {
                 const purchase = await  Purchase.findById(purchaseid);
                 if (purchase) return resolve(purchase);
 
-                reject('Purchase Not Found!')
+                reject({message: 'Purchase Not Found!'})
             }
             catch(e:any){
                 e.source = 'Get Purchase Service';
@@ -62,7 +62,7 @@ export class PurchaseService {
         return new Promise(async(resolve, reject) => {
             try{
                 let purchase = await Purchase.findById(purchaseid);
-                if(!purchase) return reject('Purchase not found!')
+                if(!purchase) return reject({message: 'Purchase not found!'})
 
                 purchase = await Purchase.findByIdAndUpdate(purchaseid, body, { new: true, runValidators: true})
                 return resolve(purchase)
@@ -70,6 +70,7 @@ export class PurchaseService {
                 if(e.message.includes('validation failed')){
                     return reject({code: 400, message: e.message})
                 }
+                
                 e.source = 'Update Purchase Service';
                 return reject(e)
             }

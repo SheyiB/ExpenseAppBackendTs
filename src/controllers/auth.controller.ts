@@ -18,7 +18,9 @@ export const login = async (req: Request, res: Response, next: NextFunction) =>{
     try{
         const {user, token } = await auth.login(req.body);
         
+        
         res.header('x-auth-token', token);
+        
         return res.status(201).json({user, token});
     }  
     catch(e: any) {

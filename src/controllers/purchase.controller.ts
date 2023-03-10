@@ -50,6 +50,7 @@ export const updatePurchase = async (req: Request, res: Response, next: NextFunc
         
         return next(res.status(200).json(purchase))
     }  catch(e:any){
+        console.log(e.message)
         return next(res.status(e.code? e.code : 500).json({success: false, message: e.message}))
     }
 }
