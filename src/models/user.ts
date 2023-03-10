@@ -29,11 +29,12 @@ export interface UserData extends IUser {
 const UserSchema = new Schema<UserData>({
     firstname: {type: String, required: true},
     lastname: {type: String, required: true},
-    email: {type: String, required: true},
+    email: {type: String, required: true, unique: true},
     dob: {type: Date, required: true},
     phone: {type: Number, required: true},
     cash: {type: Number, required: true, default: 0},
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    
 },
 {
     timestamps: true
