@@ -8,6 +8,9 @@ export class PurchaseService {
                 return resolve(purchase);
             }
             catch (e:any){
+                if(e.message.includes('validation failed')){
+                    return reject({code: 400, message: e.message})
+                }
                 e.source = 'Create Purchase Service';
                 return reject(e)
             }
@@ -64,6 +67,9 @@ export class PurchaseService {
                 purchase = await Purchase.findByIdAndUpdate(purchaseid, body, { new: true, runValidators: true})
                 return resolve(purchase)
             } catch (e:any){
+                if(e.message.includes('validation failed')){
+                    return reject({code: 400, message: e.message})
+                }
                 e.source = 'Update Purchase Service';
                 return reject(e)
             }
