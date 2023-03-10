@@ -19,7 +19,7 @@ export const getAllPurchases = async (req: Request, res: Response, next: NextFun
 
         return next(res.status(200).json(purchase))
     }  catch(e:any){
-        return next(res.status(500).json(e))
+        return next(res.status(500).json({success: false, message: e.message}))
     }
 }
 
@@ -30,7 +30,7 @@ export const getUserPurchases = async (req: Request, res: Response, next: NextFu
         
         return next(res.status(200).json(purchase))
     }  catch(e:any){
-        return next(res.status(500).json(e))
+        return next(res.status(500).json({success: false, message: e.message}))
     }
 }
 
@@ -40,7 +40,7 @@ export const getPurchase = async (req: Request, res: Response, next: NextFunctio
         
         return next(res.status(200).json(purchase))
     }  catch(e:any){
-        return next(res.status(500).json(e))
+        return next(res.status(500).json({success: false, message: e.message}))
     }
 }
 
@@ -61,6 +61,6 @@ export const deletePurchase = async (req: Request, res: Response, next: NextFunc
         
         return next(res.status(204).json({data: purchase}))
     }  catch(e:any){
-        return next(res.status(500).json(e))
+        return next(res.status(500).json({success: false, message: e.message}))
     }
 }

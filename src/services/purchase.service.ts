@@ -81,7 +81,7 @@ export class PurchaseService {
         return new Promise(async(resolve, reject) => {
             try{
                 let purchase = await Purchase.findById(purchaseid);
-                if(!Purchase) return reject('Purchase not found!')
+                if(!purchase) return reject({message: 'Purchase not found!'})
 
                 purchase = await Purchase.findByIdAndDelete(purchaseid)
                 return resolve(purchase)
