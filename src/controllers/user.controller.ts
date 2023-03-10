@@ -42,7 +42,7 @@ export const updateUser = async (req: Request, res: Response, next : NextFunctio
 export const deleteUser = async (req: Request, res: Response, next : NextFunction) =>{
     try{
         const user = await User.deleteUser(req.params.id);
-        return res.status(204).json({data: user})
+        return next(res.status(204).json({data: user}))
     }  catch(e:any){
         return next(res.status(500).json(e))
     }
