@@ -4,6 +4,11 @@ export class AuthService{
 	signUp (body: IUser){
         return new Promise<{user: UserData, token: string}>(async(resolve, reject) => {
             try{
+                let existingUser = await User.find({email : body.email})
+
+                if(existingUser.length > 0){
+                    return reject({code : 400, message: "User Exist!"})
+                }
                 const user: UserData = await User.create(body);
                 
                 const token = user.getSignedJwtToken();

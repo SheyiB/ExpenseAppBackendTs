@@ -5,6 +5,7 @@ const auth = new AuthService();
 
 export const signUp = async (req: Request, res: Response, next: NextFunction) =>{
     try{
+        
         const user = await auth.signUp(req.body);
         return res.status(201).json(user)
     }  catch(e : any){
