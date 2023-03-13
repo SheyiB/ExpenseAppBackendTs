@@ -25,7 +25,7 @@ usersRouter.get("/", async (req: Request, res: Response) => {
         const user: NewUser[] = await UserService.findAll();
 
         res.status(200).send(user);
-    } catch(e) {
+    } catch(e: any) {
         res.status(500).send(e.message);
     }
 });
@@ -42,9 +42,9 @@ usersRouter.get("/:id", async (req: Request, res: Response) => {
             return res.status(200).send(user);
         }
 
-        res.status(404).send("User not found");
-    } catch(e) {
-        res.status(500).send(e.message);
+        return res.status(404).send("User not found");
+    } catch(e: any) {
+        return  res.status(500).send(e.message);
     }
 })
 // POST users
@@ -57,7 +57,7 @@ usersRouter.post("/", async(req: Request, res: Response) => {
         const newUser = await UserService.create(user);
 
         res.status(201).json(newUser);
-    } catch(e){
+    } catch(e: any){
         res.status(500).send(e.message);
     }
 })
@@ -80,9 +80,9 @@ usersRouter.put("/:id", async(req: Request, res: Response) =>{
         const newUser = await UserService.create(userUpdate);
 
 
-        res.status(201).json(newUser);
-    } catch(e) {
-        res.status(500).send(e.message)
+        return res.status(201).json(newUser);
+    } catch(e: any) {
+        return res.status(500).send(e.message)
     }
 })
 
@@ -94,7 +94,7 @@ usersRouter.delete("/:id", async (req: Request, res: Response) => {
         await UserService.remove(id);
 
         res.sendStatus(204);
-    } catch (e) {
+    } catch (e: any) {
         res.status(500).send(e.message);
     }
 });
