@@ -1,10 +1,15 @@
 import {PurchaseService} from '../services/purchase.service';
 import {Request, Response, NextFunction} from "express";
+import {validateCreatePurchase, validateUpdatePurchase} from '../validators/purchase.validator'
 
 const Purchase = new PurchaseService();
 
 export const createPurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
+        const {error } = validateCreatePurchase(req.body)
+        if(error){
+            return next(res.status(400).json({success: false, message: error.details[0].message}))
+        }
         const purchase = await Purchase.createPurchase(req.body);
         return next(res.status(201).json(purchase)); 
         
@@ -46,6 +51,10 @@ export const getPurchase = async (req: Request, res: Response, next: NextFunctio
 
 export const updatePurchase = async (req: Request, res: Response, next: NextFunction) =>{
     try{
+        const {error } = validateUpdatePurchase(req.body)
+        if(error){
+            return next(res.status(400).json({success: false, message: error.details[0].message}))
+        }
         const purchase = await Purchase.updatePurchase(req.params.id, req.body);
         
         return next(res.status(200).json(purchase))
