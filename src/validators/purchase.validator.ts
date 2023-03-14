@@ -1,7 +1,7 @@
 import Joi from 'joi'
 import {IPurchase} from '../models/purchase'
 
-function validateCreatePurchase( purchaseDetails : IPurchase){
+export function validateCreatePurchase( purchaseDetails : IPurchase){
     const createPurchaseSchema = Joi.object().keys({
         item: Joi.string().required(),
         price: Joi.number().required(),
@@ -14,7 +14,7 @@ function validateCreatePurchase( purchaseDetails : IPurchase){
     return createPurchaseSchema.validate(purchaseDetails)
 }
 
-function validateUpdatePurchase( purchaseDetails : IPurchase){
+export function validateUpdatePurchase( purchaseDetails : IPurchase){
     const updatePurchaseSchema = Joi.object().keys({
         item: Joi.string().optional(),
         price: Joi.number().optional(),
@@ -24,9 +24,4 @@ function validateUpdatePurchase( purchaseDetails : IPurchase){
     })
 
     return updatePurchaseSchema.validate(purchaseDetails)
-}
-
-module.exports = {
-    validateCreatePurchase,
-    validateUpdatePurchase
 }
