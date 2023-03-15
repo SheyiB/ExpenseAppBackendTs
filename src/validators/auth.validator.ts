@@ -3,7 +3,7 @@ import {UserLogin, IUser} from '../models/user'
 
 type UserSignUp = Omit<IUser, "cash">
 
-export function validateLogin( loginDetails : UserLogin){
+export const validateLogin = ( loginDetails : UserLogin) => {
     const loginSchema = Joi.object().keys({
         email :  Joi.string().required(),
         password: Joi.string().required()
@@ -12,7 +12,7 @@ export function validateLogin( loginDetails : UserLogin){
     return loginSchema.validate(loginDetails)
 }
 
-export function validateSignup( signupDetails : UserSignUp){
+export const validateSignup = ( signupDetails : UserSignUp) => {
     const signupSchema = Joi.object().keys({
         firstname: Joi.string().required,
         lastname: Joi.string().required,
