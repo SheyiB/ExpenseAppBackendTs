@@ -17,7 +17,7 @@ It uses the ` Model-> Service -> Controller -> Routes `Architecture
 </a> &#xa0; &#xa0;
 
 <a href="https://www.mongodb.com/">
-  <img width="50" title="MongoDB" alt="MongoDB Logo" src="https://newrelic.com/sites/default/files/styles/800w/public/2021-10/mongo_logo.jpg?itok=Z1PabBZB">
+  <img width="70" title="MongoDB" alt="MongoDB Logo" src="https://newrelic.com/sites/default/files/styles/800w/public/2021-10/mongo_logo.jpg?itok=Z1PabBZB">
 </a> &#xa0; &#xa0;
 
 
