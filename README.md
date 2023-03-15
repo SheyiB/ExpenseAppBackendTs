@@ -16,20 +16,9 @@ It uses the ` Model-> Service -> Controller -> Routes `Architecture
   <img width="50" title="NodeJs" alt="NodeJs Logo" src="https://w1.pngwing.com/pngs/885/534/png-transparent-green-grass-nodejs-javascript-react-mean-angularjs-logo-symbol-thumbnail.png">
 </a> &#xa0; &#xa0;
 
-<a href="https://jestjs.io">
-  <img width="50" title="Jest" alt="Jest Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/jest-logo.svg">
+<a href="https://www.mongodb.com/">
+  <img width="50" title="MongoDB" alt="MongoDB Logo" src="https://newrelic.com/sites/default/files/styles/800w/public/2021-10/mongo_logo.jpg?itok=Z1PabBZB">
 </a> &#xa0; &#xa0;
-
-
-
-<a href="https://eslint.org">
-  <img  width="50" title="Eslint" alt="Eslint Logo" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/eslint/eslint.png">
-</a> &#xa0; &#xa0;
-
-
-<a href="https://prettier.io">
-  <img width="50" title="Prettier" alt="Prettier Logo" src="https://prettier.io/icon.png">
-</a>
 
 
 ## Tech Stack
