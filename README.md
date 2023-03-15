@@ -13,7 +13,7 @@ It uses the ` Model-> Service -> Controller -> Routes `Architecture
 </a> &#xa0; &#xa0;
 
 <a href="https://nodejs.org/en/">
-  <img width="50" title="NodeJs" alt="NodeJs Logo" src="https://nodejs.org/static/images/logo.svg">
+  <img width="50" title="NodeJs" alt="NodeJs Logo" src="https://w1.pngwing.com/pngs/885/534/png-transparent-green-grass-nodejs-javascript-react-mean-angularjs-logo-symbol-thumbnail.png">
 </a> &#xa0; &#xa0;
 
 <a href="https://jestjs.io">
