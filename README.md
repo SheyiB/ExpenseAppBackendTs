@@ -9,15 +9,15 @@ It uses the ` Model-> Service -> Controller -> Routes `Architecture
 
 
 <a href="https://www.typescriptlang.org">
-  <img width="50" title="Typescript" alt="Typescript Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/typescript-logo.svg">
+  <img width="70" title="Typescript" alt="Typescript Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/typescript-logo.svg">
 </a> &#xa0; &#xa0;
 
 <a href="https://nodejs.org/en/">
-  <img width="50" title="NodeJs" alt="NodeJs Logo" src="https://w1.pngwing.com/pngs/885/534/png-transparent-green-grass-nodejs-javascript-react-mean-angularjs-logo-symbol-thumbnail.png">
+  <img width="70" title="NodeJs" alt="NodeJs Logo" src="https://w1.pngwing.com/pngs/885/534/png-transparent-green-grass-nodejs-javascript-react-mean-angularjs-logo-symbol-thumbnail.png">
 </a> &#xa0; &#xa0;
 
 <a href="https://www.mongodb.com/">
-  <img width="70" title="MongoDB" alt="MongoDB Logo" src="https://newrelic.com/sites/default/files/styles/800w/public/2021-10/mongo_logo.jpg?itok=Z1PabBZB">
+  <img width="70" title="MongoDB" alt="MongoDB Logo" src="https://w7.pngwing.com/pngs/956/695/png-transparent-mongodb-original-wordmark-logo-icon-thumbnail.png">
 </a> &#xa0; &#xa0;
 
 
