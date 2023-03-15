@@ -12,8 +12,8 @@ It uses the ` Model-> Service -> Controller -> Routes `Architecture
   <img width="50" title="Typescript" alt="Typescript Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/typescript-logo.svg">
 </a> &#xa0; &#xa0;
 
-<a href="https://styled-components.com">
-  <img width="50" title="Styled Components" alt="Styled Components Logo" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/styled-components/styled-components.png">
+<a href="https://nodejs.org/en/">
+  <img width="50" title="NodeJs" alt="NodeJs Logo" src="https://nodejs.org/static/images/logo.svg">
 </a> &#xa0; &#xa0;
 
 <a href="https://jestjs.io">
