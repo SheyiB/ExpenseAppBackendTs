@@ -57,7 +57,7 @@ export const updatePurchase = async (req: Request, res: Response, next: NextFunc
         }
         const purchase = await Purchase.updatePurchase(req.params.id, req.body);
         
-        return next(res.status(200).json(purchase))
+        return res.status(200).json(purchase)
     }  catch(e:any){
         console.log(e.message)
         return next(res.status(e.code? e.code : 500).json({success: false, message: e.message}))
@@ -68,7 +68,7 @@ export const deletePurchase = async (req: Request, res: Response, next: NextFunc
     try{
         const purchase = await Purchase.deletePurchase(req.params.id);
         
-        return next(res.status(204).json({data: purchase}))
+        return res.status(204).json({data: purchase})
     }  catch(e:any){
         return next(res.status(500).json({success: false, message: e.message}))
     }
