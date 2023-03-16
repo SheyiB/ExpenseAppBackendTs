@@ -13,13 +13,14 @@ export const validateLogin = ( loginDetails : UserLogin) => {
 }
 
 export const validateSignup = ( signupDetails : UserSignUp) => {
+    
     const signupSchema = Joi.object().keys({
-        firstname: Joi.string().required,
-        lastname: Joi.string().required,
-        phone: Joi.number().required,
+        firstname: Joi.string().required(),
+        lastname: Joi.string().required(),
+        phone: Joi.number().required(),
         email :  Joi.string().required(),
         password: Joi.string().required(),
-        date: Joi.date().required()
+        dob: Joi.date().required()
     })
 
     return signupSchema.validate(signupDetails)
