@@ -11,7 +11,7 @@ export const createPurchase = async (req: Request, res: Response, next: NextFunc
             return next(res.status(400).json({success: false, message: error.details[0].message}))
         }
         const purchase = await Purchase.createPurchase(req.body);
-        return next(res.status(201).json(purchase)); 
+        return res.status(201).json(purchase); 
         
     }  catch(e:any){
         return next(res.status(e.code? e.code : 500).json({success: false, message: e.message}))
@@ -22,7 +22,7 @@ export const getAllPurchases = async (req: Request, res: Response, next: NextFun
     try{
         const purchase = await Purchase.getAllPurchase(req.query);
 
-        return next(res.status(200).json(purchase))
+        return res.status(200).json(purchase)
     }  catch(e:any){
         return next(res.status(500).json({success: false, message: e.message}))
     }
@@ -33,7 +33,7 @@ export const getUserPurchases = async (req: Request, res: Response, next: NextFu
     try{
         const purchase = await Purchase.getUserPurchase(req.params.id);
         
-        return next(res.status(200).json(purchase))
+        return res.status(200).json(purchase)
     }  catch(e:any){
         return next(res.status(500).json({success: false, message: e.message}))
     }
@@ -43,7 +43,7 @@ export const getPurchase = async (req: Request, res: Response, next: NextFunctio
     try{
         const purchase = await Purchase.getPurchase(req.params.id);
         
-        return next(res.status(200).json(purchase))
+        return res.status(200).json(purchase)
     }  catch(e:any){
         return next(res.status(500).json({success: false, message: e.message}))
     }
