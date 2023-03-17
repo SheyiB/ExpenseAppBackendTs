@@ -2,13 +2,13 @@ import express from "express";
 import {createUser, deleteUser, getAllUsers, getUser, updateUser} from '../controllers/user.controller';
 import {purchaseRouter} from './purchase.routes';
 
-import {protect} from "../middlewares/auth";
+import {protect, isAdmin} from "../middlewares/auth";
 
 export const userRouter = express.Router();
 
 userRouter.use('/purchase', purchaseRouter)
 
-userRouter.route('/').get(protect, getAllUsers).post(createUser);
-userRouter.route('/:id').get(protect,getUser).put(updateUser).delete(deleteUser);
+userRouter.route('/').get([protect, isAdmin], getAllUsers).post([protect, isAdmin],createUser);
+userRouter.route('/:id').get([protect, isAdmin],getUser).put([protect, isAdmin],updateUser).delete([protect, isAdmin],deleteUser);
 
 
