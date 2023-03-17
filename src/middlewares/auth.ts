@@ -18,11 +18,7 @@ export const protect = async(req: Request, res: Response, next: NextFunction) =>
 		currentUser.password = '';
 
 		(req as any).user = currentUser;
-
-
-		return next();
 		
-
 
 	}catch(e: any){
 
@@ -35,17 +31,17 @@ export const protect = async(req: Request, res: Response, next: NextFunction) =>
 		} 
 	}	
 
+	return next()
+
 }
 
 export const isAccountOwner = async(req: Request, res: Response, next: NextFunction) => {
 
-	
 	const token = req.header('x-auth-token');
 
 	if(!token) return next(res.status(401).json({message: 'UNAUTHORIZED!'}))
 
 	try{
-
 		const decoded =  jwt.verify(token, process.env.JWT_SECRET!);
 
 		const { id } = (decoded as any)
