@@ -14,7 +14,7 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
         return res.status(201).json(user)
     }  catch(e : any){
         
-        return next(res.status(e.code? e.code : 500).json({success: false, message: e.message}))
+        return res.status(e.code? e.code : 500).json({success: false, message: e.message})
     }
 }
 
@@ -22,7 +22,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) =>{
     try{        
         const {error } = validateLogin(req.body)        
         if(error){
-            return next(res.status(400).json({success: false, message: error.details[0].message}))
+            return res.status(400).json({success: false, message: error.details[0].message})
         }
         const {user, token } = await auth.login(req.body);       
         
@@ -30,7 +30,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) =>{
         return res.status(201).json({user, token});
     }  
     catch(e: any) {
-            return next(res.status(e.status).json({success: false, message: e.message}))    
+            return res.status(e.status).json({success: false, message: e.message})    
     
         
     }
