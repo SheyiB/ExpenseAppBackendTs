@@ -52,7 +52,7 @@ export const isAccountOwner = async(req: Request, res: Response, next: NextFunct
 			console.log("Crashhh")
 		}
 		else{
-			if (id != req.params.id || currentuser.role != 'SuperUser'){
+			if (id != req.params.id && currentuser.role != 'SuperUser' && currentuser.role != 'admin'){
 				return res.status(401).json({message: 'UNAUTHORIZED USER!'})
 			}	
 		}
@@ -69,6 +69,28 @@ export const isAccountOwner = async(req: Request, res: Response, next: NextFunct
 		else {
 			return next(res.status(406).json({message: 'INVALID TOKEN! '}))
 		} 
+	}	
+
+}
+
+export const isAdmin = async(req: Request, res: Response, next: NextFunction) => {
+	try{
+		const currentuser = (req as any).user ;
+
+		if(!currentuser){
+			console.log("Crashhh")
+		}
+		else{
+			if (currentuser.role != 'admin'){
+				return res.status(401).json({message: 'UNAUTHORIZED USER!'})
+			}	
+		}
+		
+		return next();
+		
+	}catch(e: any){
+			return res.status(500).json({message: e.message})
+		 
 	}	
 
 }
