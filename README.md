@@ -33,8 +33,6 @@ It uses the ` Model-> Service -> Controller -> Routes `Architecture
 
 
 
-
-
 ## Other Packages
 
 - **Joi** - For Validation
@@ -44,6 +42,11 @@ It uses the ` Model-> Service -> Controller -> Routes `Architecture
 - **Morgan** - For Requests Logging
 
 - **JWT** - For token creation
+
+
+## Feautures
+
+- Role Based Users
 
 
 ## How to Run
