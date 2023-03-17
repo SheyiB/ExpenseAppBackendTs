@@ -12,6 +12,7 @@ export interface IUser {
     phone: number;
     cash: number;
     password: string;
+    role: string;
 }
 
 
@@ -34,7 +35,7 @@ const UserSchema = new Schema<UserData>({
     phone: {type: Number, required: true},
     cash: {type: Number, required: true, default: 0},
     password: {type: String, required: true},
-    
+    role: {type: String, enum: ["user", "SuperUser", "admin"], default : "user"}  
 },
 {
     timestamps: true
