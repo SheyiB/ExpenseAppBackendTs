@@ -1,10 +1,7 @@
-FROM node:18
+/node_modules
+/package
 
-WORKDIR /app
+package.zip
 
-COPY package*.json ./
-
-RUN npm install
-
-COPY . . 
-
+ENV PORT=8080
+/package (1)
