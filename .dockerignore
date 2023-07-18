@@ -1,14 +1,11 @@
 /node_modules
 /package
-<<<<<<< HEAD
 
 package.zip
 
 ENV PORT=8080
 /package (1)
 FROM node:18
-=======
->>>>>>> c5d47e5 (Dockerized App)
 
 package.zip
 
